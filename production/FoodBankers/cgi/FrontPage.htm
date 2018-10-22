@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Northern Illinois Food Bank Online Order System </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {box-sizing: border-box}
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+            background-color:whitesmoke;
+        }
+
+        .title {
+            font-family : "Arial";
+            color:rgb(83,104,47);
+        }
+
+        .greensubtitle
+        {
+            color:white;
+            background-color:rgb(83,104,47);
+        }
+
+        .orangesubtitle
+        {
+            color:white;
+            background-color:rgb(231,128,0);
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 class = "title"><center>
+
+    <img src="https://i.vimeocdn.com/portrait/14186240_640x640" alt="Northern Illinois Food Bank" style="float:left;width:150px;height:150px;"/>
+    <img src="https://www.transparenttextures.com/patterns/asfalt-light.png" alt="Northern Illinois Food Bank" style="float:right;width:150px;height:150px;"/>
+
+    <br>Northern Illinois Food Bank <br>Online Order System <br><br></center></h1>
+
+<FORM method="GET" action="http://localhost:2540/cgi/FrontPage.cgi">
+
+    <h3 class = "orangesubtitle"><br></h3>
+    <h3 class="greensubtitle"><center>New Neighbor Information</center></h3>
+
+    <center>
+        Your Name:
+        <br>
+        <INPUT TYPE="text" NAME="nameFirst" size=20 value="First Name">
+        <br>
+        <INPUT TYPE="text" NAME="nameLast" size=20 value="Last Name">
+        <br><br>
+
+        Your Address:
+        <br>
+        <INPUT TYPE="text" NAME="addrStreet1" size=20 value="Street Address 1">
+        <br>
+        <INPUT TYPE="text" NAME="addrStreet2" size=20 value="Street Address 2">
+        <br>
+        <INPUT TYPE="text" NAME="addrCity" size=10 value="City">
+        <INPUT TYPE="text" NAME="addrState" size=3 value="State">
+
+        <INPUT TYPE="text" NAME="addrZip" size=5 value="Zip"> <br>
+
+        <br>
+        <INPUT TYPE="submit" VALUE="Submit Information"/>
+        <input type="reset" value="Reset Information">
+
+        <h3 class = "greensubtitle"><br></h3>
+        <h3 class = "orangesubtitle"><br></h3>
+
+        <img src="https://chicago.shine.fm/wp-content/uploads/2013/12/foodbank.jpg" alt="Northern Illinois Food Bank" style="width:700px;height:200px;"/>
+
+    </center>
+
+</FORM>
+</body>
+</html>

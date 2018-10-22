@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Northern Illinois Food Bank Online Order System
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {box-sizing: border-box}
+
+        body, html {
+            height: 150%;
+            margin: 0;
+            font-family: Arial;
+
+            background-color:whitesmoke;
+        }
+
+        .title {
+            font-family : "Arial";
+            color:rgb(83,104,47);
+        }
+
+        /* Style tab links */
+
+        .tablink {
+            background-color: #888;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 50%;
+        }
+
+        .tablink:hover {
+            background-color: #666;
+        }
+
+        .tabcontent {
+            color: white;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+
+        #Order {background-color: rgb(219, 182, 135);}
+        #Volunteer {background-color: rgb(131, 140, 95);}
+    </style>
+</head>
+
+<body>
+
+<h1 class = "title"><center>
+
+    <img src="https://i.vimeocdn.com/portrait/14186240_640x640" alt="Northern Illinois Food Bank" style="float:left;width:150px;height:150px;"/>
+    <img src="https://www.transparenttextures.com/patterns/asfalt-light.png" alt="Northern Illinois Food Bank" style="float:right;width:150px;height:150px;"/>
+
+    <br>Northern Illinois Food Bank <br>Online Order System
+
+
+
+    <br><br></center></h1>
+
+<button class="tablink" onclick="openPage('Order', this, 'rgb(231,128,0)')" id="defaultOpen"><b>Order</b></button>
+<button class="tablink" onclick="openPage('Volunteer', this, 'rgb(83,104,0)')" ><b>Volunteer</b></button>
+
+<!-- ORDER PAGE -->
+
+<div id="Order" class="tabcontent">
+    <h2 align="center">Order</h2>
+    <p align="center">
+
+        <img src="https://solvehungertoday.org/wp-content/uploads/2015/02/Geneva-Volunteer-Photo.jpg" alt = "Order from the Northern Illinois Food Bank" style = "float:right;width:350px;height:400px;"/>
+
+        Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order
+        <br><br>
+        Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order Order
+        <br><br>
+    </p>
+
+    <form method="GET" action="http://localhost:2540/cgi/Order.cgi" align="center">
+        <fieldset>
+            <legend> Order Information</legend>
+
+            <br>
+            Meeting Location for this order: <br>
+            <input type="radio" name="pickupLocation" value="home" checked> Home <br>
+            <input type="radio" name="pickupLocation" value="localPickup"> Local Pickup <br><br>
+
+            Order Date: <br>
+            <input type="date" name="orderDate">
+
+
+
+            <br><br>
+            Check what you would like to order this week:
+            <br><br>
+
+            <input type="checkbox" name="food0" value = "produce"> Produce <br>
+
+            <input type="checkbox" name="food1" value = "meat"> Meat <br>
+
+            <input type="checkbox" name="food2" value = "drygoods"> Dry Goods <br>
+
+            <br>
+            <input type="submit" value="Submit Information"/>
+            <input type="reset" value="Reset Information">
+
+        </fieldset>
+    </form>
+
+
+</div>
+
+<!-- VOLUNTEER PAGE -->
+
+<div id="Volunteer" class="tabcontent">
+    <h2 align="center">Volunteer</h2>
+    <p align="center">
+
+        <img src="https://solvehungertoday.org/wp-content/uploads/2017/03/volunteer_food-sorting.png" alt = "Volunteer at the Northern Illinois Food Bank" style = "float:left;width:400px;height:400px;"/>
+
+        Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer
+        <br><br>
+
+        Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer
+        <br><br>
+        Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer Volunteer
+    </p>
+
+    <form method="GET" action="http://localhost:2540/cgi/Volunteer.cgi" align="center">
+        <fieldset>
+            <legend> Volunteer Information</legend>
+
+            <br>
+            Type of Volunteer Work : <br>
+            <input type="radio" name="volunteerType" value="transport" checked> Transport <br>
+            <input type="radio" name="volunteerType" value="organize"> Organize <br><br>
+
+            Volunteer Date: <br>
+            <input type="date" name="volunteerDate">
+
+
+            <br>
+            <br>
+            <input type="submit" value="Submit Information"/>
+            <input type="reset" value="Reset Information">
+
+        </fieldset>
+    </form>
+
+</div>
+
+<script>
+    function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

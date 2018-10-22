@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Northern Illinois Food Bank Online Order System
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {box-sizing: border-box}
+
+        body, html {
+            height: 150%;
+            margin: 0;
+            font-family: Arial;
+
+            background-color:whitesmoke;
+        }
+
+        .title {
+            font-family : "Arial";
+            color:rgb(83,104,47);
+        }
+
+        /* Style tab links */
+
+        .tablink {
+            background-color: #888;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 50%;
+        }
+
+        .tablink:hover {
+            background-color: #666;
+        }
+
+        .tabcontent {
+            color: white;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+
+        #Order {background-color: rgb(219, 182, 135);}
+        #Volunteer {background-color: rgb(131, 140, 95);}
+    </style>
+</head>
+
+<body>
+
+<h1 class = "title"><center>
+
+    <img src="https://i.vimeocdn.com/portrait/14186240_640x640" alt="Northern Illinois Food Bank" style="float:left;width:150px;height:150px;"/>
+    <img src="https://www.transparenttextures.com/patterns/asfalt-light.png" alt="Northern Illinois Food Bank" style="float:right;width:150px;height:150px;"/>
+
+    <br>Northern Illinois Food Bank <br>Online Order System
+
+
+
+    <br><br></center></h1>
+
+<button class="tablink" onclick="openPage('Order', this, 'rgb(231,128,0)')" id="defaultOpen"><b>Order</b></button>
+<button class="tablink" onclick="openPage('Volunteer', this, 'rgb(83,104,0)')" ><b>Volunteer</b></button>
+
+<!-- ORDER PAGE -->
+
+<div id="Order" class="tabcontent">
+    <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fabout.usps.com%2Fassets%2Fimages%2Fcorporate-social-responsibility%2Fdelivering_hope.jpg&f=1" alt = "Order from the Northern Illinois Food Bank" style = "float:right;width:500px;height:375px;"/>
+    <h2 align="center">Order</h2>
+    <p align="center">
+
+
+
+        Select what you would like to eat. Submit your order.
+
+        <br><br>
+        The system will automatically calculate the quantity based on number of family members.
+        <br><br>
+        We will do our best to provide what you ordered, however the availability of our food inventory changes daily.
+        <br><br>
+        If we do not have something you requested, we will substitute the item with an alternative.
+        <br><br>
+    </p>
+
+    <form method="GET" action="http://localhost:2540/cgi/Order.cgi" align="center">
+        <fieldset>
+            <legend> Order Information</legend>
+
+            <br>
+            Meeting Location for this order: <br>
+            <input type="radio" name="pickupLocation" value="home" checked> Home <br>
+            <input type="radio" name="pickupLocation" value="localPickup"> Local Pickup <br><br>
+
+            Order Date: <br>
+            <input type="date" name="orderDate">
+
+
+
+            <br><br>
+            Check what you would like to order this week:
+            <br><br>
+
+            <input type="checkbox" name="food0" value = "produce"> Produce <br>
+
+            <input type="checkbox" name="food1" value = "meat"> Meat <br>
+
+            <input type="checkbox" name="food2" value = "drygoods"> Dry Goods <br>
+
+            <br>
+            <input type="submit" value="Submit Information"/>
+            <input type="reset" value="Reset Information">
+
+        </fieldset>
+    </form>
+
+
+</div>
+
+<!-- VOLUNTEER PAGE -->
+
+<div id="Volunteer" class="tabcontent">
+
+    <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.alleszelf.nl%2Fwp-content%2Fuploads%2F2017%2F07%2FBoodschappenservice-als-zel.jpg&f=1" alt = "Volunteer at the Northern Illinois Food Bank" style = "float:left;width:500px;height:375px;"/>
+
+    <h2 align="center">Volunteer</h2>
+    <p align="center">
+
+
+
+        Give back.
+        <br><br>
+
+        Help other neighbors in your community
+        <br><br>
+        If you have a car and can make deliveries to neighbors who cannot drive OR can help distribute food at a pick-up location near you, please let us know.
+        <br><br>
+    </p>
+
+    <form method="GET" action="http://localhost:2540/cgi/Volunteer.cgi" align="center">
+        <fieldset>
+            <legend> Volunteer Information</legend>
+
+            <br>
+            Type of Volunteer Work : <br>
+            <input type="radio" name="volunteerType" value="transport" checked> Transport <br>
+            <input type="radio" name="volunteerType" value="organize"> Organize <br><br>
+
+            Volunteer Date: <br>
+            <input type="date" name="volunteerDate">
+
+
+            <br>
+            <br>
+            <input type="submit" value="Submit Information"/>
+            <input type="reset" value="Reset Information">
+
+        </fieldset>
+    </form>
+
+</div>
+
+<script>
+    function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
